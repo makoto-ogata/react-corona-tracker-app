@@ -6,6 +6,7 @@ import WorldPage from "./pages/WorldPage";
 import "./App.css";
 
 function App() {
+  const [loading, setLoading] = useState(false);
 	const [country, setCountry] = useState("");
 	const [countryData, setCountryData] = useState({
 		date: "",
@@ -16,6 +17,7 @@ function App() {
 	});
   const [allCountriesData, setAllCountriesData] = useState([]);
 	const getCountryData = () => {
+    setLoading(true);
 		fetch(`https://api.covid19api.com/country/${country}`)
 			.then((res) => res.json())
 			.then((data) => {
@@ -28,6 +30,7 @@ function App() {
 						data[data.length - 1].Recovered - data[data.length - 2].Recovered,
 					totalRecovered: data[data.length - 1].Recovered,
 				});
+        setLoading(false);
 			})
       .catch(err => alert('エラーが発生しました。ページをリロードして、もう一度トライするか、国を選択してください。'));
 	}
@@ -48,6 +51,7 @@ function App() {
             setCountry={setCountry}
             getCountryData={getCountryData}
             countryData={countryData}
+            loading={loading}
           />
         </Route>
         <Route exact path='/world'>
