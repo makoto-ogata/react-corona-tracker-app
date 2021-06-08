@@ -29,6 +29,7 @@ function App() {
 					totalRecovered: data[data.length - 1].Recovered,
 				});
 			})
+      .catch(err => alert('エラーが発生しました。ページをリロードして、もう一度トライするか、国を選択してください。'));
 	}
 
   useEffect(() => {
@@ -36,6 +37,7 @@ function App() {
     fetch("https://api.covid19api.com/summary")
     .then(res => res.json())
     .then(data => setAllCountriesData(data.Countries))
+    .catch(err => alert('エラーが発生しました。ページをリロードして、もう一度トライしてください。'));
   }, [])
 	return (
 		<BrowserRouter>
