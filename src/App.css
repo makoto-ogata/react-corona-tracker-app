@@ -78,14 +78,18 @@ h1 {
 }
 
 .selector-container > select {
-    border-radius: 40px 40px 40px 40px;
-    border: transparent;
-    width: 498px;
-    height: 27px;
-    padding: 0.5rem 1rem;
-    appearance:none;
-    color: #fff;
-    background: linear-gradient(250.6deg, #6A70FF 7.3%, rgba(255, 53, 53, 0.4) 98.63%);
+  border-radius: 40px 0 0 40px;
+  border: transparent;
+  width: 400px;
+  height: 27px;
+  padding: .5rem 1rem;
+  -webkit-appearance: none;
+  appearance: none;
+  color: #fff;
+  background: linear-gradient(
+250.6deg
+,#6a70ff 7.3%,rgba(255,53,53,.4) 98.63%);
+  font-size: 1.4rem;
 }
 
 .selector-container > select:active, .selector-container > select:focus, .selector-container > select:hover {
