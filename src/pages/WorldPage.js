@@ -1,10 +1,12 @@
+import Title from "../components/Title";
 import Card from "../components/Card";
 
 
-const WorldPage =()=> {
+const WorldPage =(props)=> {
   return (
     <div>
-     <Card /> 
+      <Title />
+      <Card allCountriesData={props.allCountriesData} /> 
     </div>
   )
 }
